@@ -80,7 +80,11 @@ public class DynamoFileEventRecorder implements FileEventRecorder {
         //             서버에서 업로드 · 다운로드 뒤 DynamoDB 콘솔 항목 탐색에 fileId · at · type · host · expireAt 이 보임
         String at = now.toString() + "#" + UUID.randomUUID().toString().substring(0, 8);
         return Map.of(
-                "fileID", 
+                "fileId",   AttributeValue.fromS(fileId),
+                "at",       AttributeValue.fromS(at),
+                "type",     AttributeValue.fromS(type),
+                "host",     AttributeValue.fromS(host),
+                "expireAt", AttributeValue.fromN(String.valueOf(now.plus(KEEP).getEpochSecond()))
         );
 
     }

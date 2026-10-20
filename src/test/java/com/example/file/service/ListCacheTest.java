@@ -1,5 +1,6 @@
-package com.example.file.service;
+package com.example.file.service;import com.example.file.service.FileRegistry;
 
+import com.example.file.service.FileService;
 import com.example.file.storage.StoredFile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,8 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ActiveProfiles("local")
 class ListCacheTest {
 
-    @Autowired FileService fileService;
-    @Autowired FileRegistry registry;
+    @Autowired
+    FileService fileService;
+    @Autowired
+    FileRegistry registry;
     @Autowired CacheManager cacheManager;
 
     @BeforeEach
